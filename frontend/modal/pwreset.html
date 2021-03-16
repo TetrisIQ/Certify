@@ -1,0 +1,74 @@
+<!-- Modal HTML -->
+<div id="myModal" class="modal fade">
+    <div id="myModal" class="modal fade show" style="display: block;" aria-modal="true">
+        <div class="modal-dialog modal-login">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="container">
+                        <div class="container">
+                            <div class="row text-center">
+                                <div class="col-sm">
+                                    <svg class="text-primary" xmlns="http://www.w3.org/2000/svg" width="60" height="60"
+                                        fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                        <path fill-rule="evenodd"
+                                            d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                                    </svg>
+                                    <h4 class="modal-title">Reset your Password</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="location.reload()" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                     <!--   <div class="row text-center">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Passwort</span>
+                                </div>
+                                <input type="text" id="pw" class="form-control" placeholder="Neues Passwort"
+                                    aria-label="Neues Passwort">
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Wiederholen</span>
+                                </div>
+                                <input type="text" id="pwW" class="form-control" placeholder="Passwort wiederholen"
+                                    aria-label="Passwort wiederholen">
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="form-group">
+                        Field1<input type="text" class="form-control" pattern="^[a-z]{2,4}$" required autofocus>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">a to z only (2 to 4 long)</div>
+                      </div>
+                      <div class="form-group">
+                        Password<input type="text" id="pw" class="form-control pwds" pattern="^[a-z]{2,4}$" required>
+                        <div class="valid-feedback">Valid</div>
+                        <div class="invalid-feedback">a to z only (2 to 4 long)</div>
+                      </div>
+                      <div class="form-group">
+                        Confirm Password<input type="text" id="pwW" class="form-control pwds" pattern="^[a-z]{2,4}$" required>
+                        <div id="cPwdValid" class="valid-feedback">Valid</div>
+                        <div id="cPwdInvalid" class="invalid-feedback">a to z only (2 to 4 long)</div>
+                      </div>
+                      <div class="form-group">
+                        <button id="submitBtn" type="submit" class="btn btn-primary submit-button" disabled>Submit</button>
+                      </div>
+                
+
+
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" onclick="resetPW()" style="margin-left: auto;margin-right: auto;">Submit</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Certify - Verifiziere dein Schul- und Abschlusszeugnissen </title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/certify.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">Certify</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/#verify">Verify</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/#technique">Technik</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/#contact">Kontakt</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#myModal" data-toggle="modal">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-person-circle" viewBox="0 0 16 16">
+                                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+                                <path fill-rule="evenodd"
+                                    d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="modal"></div>
+    <!--Will be loaded by JS-->
+
+
+    <header class="bg-primary text-black">
+        <div class="container text-center">
+            <h1>Willkommen bei Certify</h1>
+            <p class="lead">Eine Technische möglichkeit Schul- und Abschlusszeugnisse zu Verifizieren</p>
+        </div>
+    </header>
+    <section id="new">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon1">Name:</span>
+                        </div>
+                        <input type="text" class="form-control" id="name" placeholder="Name" aria-label="name"
+                            aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="basic-addon2">Organisation:</span>
+                        </div>
+                        <input type="text" class="form-control" id="organisation" placeholder="Organisation"
+                            aria-label="organisation" aria-describedby="basic-addon1">
+                    </div>
+
+                </div>
+                <div class="col text-right">
+                    <p>QR Code & VerifyToken Generieren</p>
+                    <button type="button" onclick="generate()" class="btn btn-secondary btn-verify">Generate</button>
+                </div>
+            </div>
+            
+            <div id="verify-text" class="text-center collapse">
+            <h2>VerifyToken: <span id="verify-token">ZASDHJS</span></h2>
+            <div id="qr-code"></div>
+
+        
+        </div>
+
+
+            <h3>Noten:</h3>
+            <table id="table" class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Fach</th>
+                        <th scope="col">Note</th>
+                        <th scope="col-sm-1"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" class="form-control" placeholder="Fach"></td>
+                        <td><input type="text" class="form-control" placeholder="Note" aria-label="Note"
+                                aria-describedby="basic-addon1"></td>
+                        <td><button onclick="newLine()" class="btn btn-secondary text-white add">+</button></td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>Freitext:</h4>
+            <textarea type="text" class="form-control" id="text" aria-describedby="basic-addon1"></textarea>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 bg-primary">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; Certify 2021 </p>
+            </p>
+        </div>
+        <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- QR Code generator Lib-->
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+
+    <!-- Custom JavaScript for this theme -->
+    <script src="js/scrolling-nav.js"></script>
+    <script src="js/certify.js"></script>
+
+
+
+</body>
+
+</html>

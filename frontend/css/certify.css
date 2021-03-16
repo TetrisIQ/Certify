@@ -1,0 +1,43 @@
+/*footer {
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}*/
+
+#verify {
+    margin-top: 5rem;
+}
+
+svg {
+    margin-left: 10px;
+    margin-top: 6px;
+}
+
+.round {
+    border-radius: 49%;
+}
+
+.avatar {
+    margin-left: auto;
+}
+
+#myModal > div > div > div.modal-header > div > div > div > div > svg {
+    margin-bottom: 20px;
+    margin-top: 1rem;
+}
+
+#page-top {
+    height: 100vh;
+}
+
+.btn-info {
+    margin: 0.5em;
+}
+
+.input-group-text {
+    width: 8em;
+}
+
+#verify-text {
+    margin-top: 1em;
+}

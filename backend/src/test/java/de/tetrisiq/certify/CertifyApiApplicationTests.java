@@ -1,0 +1,13 @@
+package de.tetrisiq.certify;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class CertifyApiApplicationTests {
+
+	@Test
+	void contextLoads() {
+	}
+
+}
