@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/general.html :: head"></head>
+
+<body id="page-top">
+
+<div th:insert="fragments/general.html :: navbar"></div>
+<div th:insert="fragments/general.html :: headerContent"></div>
+
+
+<div id="verify" class="container">
+    <div class="row">
+        <div class="col">
+            <h2>Name: <span id="name"></span></h2>
+            <h2>Schule: <span id="organisation"></span></h2>
+        </div>
+        <div class="col text-right">
+            <button type="button" id="btn-verify" class="btn btn-secondary btn-verify">Verifizieren</button>
+            <p>VerifyToken: <span id="verifyToken">XXXXXXXX</span></p>
+        </div>
+    </div>
+
+
+    <h3>Noten:</h3>
+    <table id="table" class="table">
+        <thead>
+        <tr>
+            <th scope="col">Fach</th>
+            <th scope="col">Note</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+
+</div>
+
+
+<!-- Footer -->
+<div th:insert="fragments/general.html :: footer"></div>
+
+
+</body>
+
+</html>

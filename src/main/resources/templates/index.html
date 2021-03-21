@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="de" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments/general.html :: head"></head>
+
+
+<body id="page-top">
+
+<!-- Navigation -->
+<div th:insert="fragments/general.html :: navbar"></div>
+<div th:insert="fragments/general.html :: headerContent"></div>
+
+
+<section id="verify">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Verifiziere dein Zeugnis</h2>
+                <p class="lead">Folge der Schritt für Schritt anweisung</p>
+                <ul>
+                    <li>Scanne den QR-Code auf dem Dokument</li>
+                    <li>Überprüfe die Noten und Fächer</li>
+                    <li>Stimmt alles überein, starte die Überprüfung</li>
+                    <li>Vergleiche den code den du bekommen hast mit dem VerifyToken auf dem Dokument</li>
+                    <li>Stimmt der Code überein, stimmen die daten überein</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="technique" class="bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Wie Funktioniert die Verifizierung</h2>
+                <p class="lead">Einfach erklärt</p> <!-- Doppelt mit section 1 oben-->
+                <p>Für die Verifizierung muss die Organisation die dir das Zeugnis ausgestellt hat, dieses hier zuerst
+                    Registrieren. Auf deinem Zeugnis sollte ein QR-Code und ein VerifyToken zu sehen sein.</p>
+                <p>Zum Verifizieren musst du lediglich den QR-Code scannen, die angegebenen Daten mit dennen auf dem
+                    Zeugnis vergleichen und das VerifyToken genau überprüfen.</p>
+                <p>Wenn alles übereinstimmt ist das Zeugnis Verifiziert!</p>
+                <hr>
+                <p class="lead">Ein Technischer blickwinkel</p>
+                <p>Bei der Regestrierung des Zeignisses wird von den daten, in dem Zeugnis eine Hash summe (sha512)
+                    gebildet. Diese wird mit dem VerifyToken im Backend gespeichert.</p>
+                <p>Es wird nicht das gesamte zeugnis gespeichert, sondern nur dieser Hash wert und das Token. Bei der
+                    Verifizirung wird der selbe Algorythmus verwendet und es wird nur die Hash summe abgeglichen.</p>
+                <p>Im QR-Code werden die Zeugnisinforationen über Fächer und Noten gespeichert und beim scannen an die
+                    Webseite übermittelt (aber nicht gespeichert).</p>
+                <p>Dies ist ist vergleichbar mit dem Mauellen eintragen aller noten, nur das der QR-Code schneller ist
+                    und keine fehler beim Abtippen auftreten.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2>Über uns und Kontakte</h2>
+                <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero odio fugiat voluptatem
+                    dolor,
+                    provident officiis, id iusto! Obcaecati incidunt, qui nihil beatae magnam et repudiandae ipsa
+                    exercitationem, in, quo totam.</p>
+                <p>TODO: Kontakt etc.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<div th:insert="fragments/general.html :: footer"></div>
+
+</body>
+
+</html>
