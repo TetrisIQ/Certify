@@ -1,5 +1,5 @@
 const backend = "http://localhost:8080/api/";
-const verifyUrl = "http://192.168.0.49:5500/";
+const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
 
 
 function login() {
@@ -104,20 +104,11 @@ function createQR(url) {
 }
 
 function createUrl(data) {
-    var ret = `${verifyUrl}verify.html?`;
+    var ret = `${verifyUrl}verify?`;
     for (const p in data) {
         ret += `${p}=${data[p]}&`
     }
     return ret.substring(0, ret.length - 1);
-
-}
-
-function openPwChangeDialog() {
-    $("#modal").load("modal/pwreset.html");
-    setTimeout(() => {
-        $("#myModal").modal()
-    }, 100);
-
 
 }
 

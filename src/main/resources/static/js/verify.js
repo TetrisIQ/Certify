@@ -17,10 +17,10 @@ function getUrlVars() {
 
 function createTable() {
     for (const p in variables) {
-        if (p == "n") {
+        if (p === "n") {
             $("#name").html(variables[p])
         }
-        else if (p == "o") {
+        else if (p === "o") {
             $("#organisation").html(variables[p])
 
         }
@@ -60,6 +60,4 @@ $(function () {
 
 
     });
-
-    //TODO: Hash variabels, send to backend, show verifyToken
 });
