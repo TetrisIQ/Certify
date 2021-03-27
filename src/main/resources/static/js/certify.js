@@ -1,4 +1,5 @@
-const backend = "http://localhost:8080/api/";
+//TODO: get this by JS
+const backend = "https://tetrisiq-certify.herokuapp.com/api/";
 const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
 
 

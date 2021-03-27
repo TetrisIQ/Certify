@@ -23,6 +23,10 @@ public class Report {
         this.verifyToken = generateVerifyToken();
     }
 
+    public void setVerifyToken(String verifyToken) {
+        this.verifyToken = verifyToken;
+    }
+
     private String generateVerifyToken() {
         return UUID.randomUUID().toString().split("-")[0].toLowerCase();
     }

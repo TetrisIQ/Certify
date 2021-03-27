@@ -42,8 +42,9 @@ public class CertifyAppApplication {
 				user.setRole("ADMIN");
 				userRepository.save(user);
 				// Insert example data
-				String hash = "";
+				String hash = "1dccad3fad058a29ccef8e003fa71bbabf587431ac5a55fb36268bf7958c5f3cb31116ac9e855ec61bb9b72ecbd484f704bee032707fb0ead24ad2bee97b9a39";
 				Report report = new Report(hash);
+				report.setVerifyToken("");
 			}
 		}
 
