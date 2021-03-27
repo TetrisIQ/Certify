@@ -50,6 +50,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
                         "/css/**",
                         "/js/**",
                         "/img/**",
+                        "/favicon.ico",
                         "/modal/**",
                         "/webjars/**",
                         "/verify/**",
