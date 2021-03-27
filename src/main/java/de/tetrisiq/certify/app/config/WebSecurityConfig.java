@@ -20,7 +20,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
  */
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     private UserService userService;
 
@@ -66,30 +65,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .exceptionHandling();
 
-        /*http.csrf().disable();
-        http.authorizeRequests()
-                .antMatchers("/v2/api-docs",
-                        "/configuration/ui",
-                        "/swagger-resources/**",
-                        "/configuration/security",
-                        "/swagger-ui.html",
-                        "/",
-                        "/css/**",
-                        "/js/**",
-                        "/img/**",
-                        "/modal/**",
-                        "/verify",
-                        "/csrf",
-                        "/webjars/**",
-                        "/api/verify/**").permitAll()
-                //       .antMatchers("/admin/**").hasRole("root")
-                .antMatchers("**").authenticated()
-                .anyRequest().permitAll()
-                //.and().formLogin()
-                //.permitAll()
-                .and()
-                .httpBasic();
-         */
     }
 
     @Bean
@@ -97,3 +72,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManagerBean();
     }
 }
+
