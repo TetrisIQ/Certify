@@ -1,7 +1,7 @@
 package de.tetrisiq.certify.app.config;
 
 import de.tetrisiq.certify.app.controller.requests.NewUser;
-import de.tetrisiq.certify.app.model.User;
+import de.tetrisiq.certify.app.model.UserModel;
 import de.tetrisiq.certify.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -31,11 +31,11 @@ public class UserService implements UserDetailsService {
     /**
      * Get the currently
      *
-     * @return Optional from {@link User}
+     * @return Optional from {@link UserModel}
      */
-    public Optional<User> currentUser() {
+    public Optional<UserModel> currentUser() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        Optional<User> user = userRepository.findByUsername(((UserDetails) auth.getPrincipal()).getUsername());
+        Optional<UserModel> user = userRepository.findByUsername(((UserDetails) auth.getPrincipal()).getUsername());
         if (user.isPresent()) {
             return Optional.of(user.get());
         }
@@ -44,29 +44,29 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<User> user = userRepository.findByUsername(username);
+        Optional<UserModel> user = userRepository.findByUsername(username);
         if (user.isPresent()) {
             return userDetails(user.get());
         }
         return null;
     }
 
-    private org.springframework.security.core.userdetails.User userDetails(User user) {
+    private org.springframework.security.core.userdetails.User userDetails(UserModel user) {
         List privileges = Arrays.asList(new SimpleGrantedAuthority(user.getRole()));
         return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPasswordHash(), true, true, true, true, privileges);
     }
 
-    public Optional<User> addNewUser(NewUser newUser) {
-        Optional<User> userOptional = userRepository.findByUsername(newUser.getUsername());
+    public Optional<UserModel> addNewUser(NewUser newUser) {
+        Optional<UserModel> userOptional = userRepository.findByUsername(newUser.getUsername());
         if (!userOptional.isPresent()) {
-            User user = User.builder().role("USER").passwordHash(webSecurityConfig.passwordEncoder().encode(newUser.getPassword())).username(newUser.getUsername()).build();
+            UserModel user = UserModel.builder().role("USER").passwordHash(webSecurityConfig.passwordEncoder().encode(newUser.getPassword())).username(newUser.getUsername()).build();
             return Optional.of(user);
         }
         return Optional.empty();
     }
 
     public String changePassword(String newPassword) {
-        User user = currentUser().get();
+        UserModel user = currentUser().get();
         user.setPasswordHash(this.webSecurityConfig.passwordEncoder().encode(newPassword));
         userRepository.save(user);
         return "OK";

@@ -2,7 +2,7 @@ package de.tetrisiq.certify.app;
 
 import de.tetrisiq.certify.app.config.WebSecurityConfig;
 import de.tetrisiq.certify.app.model.Report;
-import de.tetrisiq.certify.app.model.User;
+import de.tetrisiq.certify.app.model.UserModel;
 import de.tetrisiq.certify.app.repository.ReportRepository;
 import de.tetrisiq.certify.app.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +36,7 @@ public class CertifyAppApplication {
 		public void run(String... args) {
 			if (userRepository.findAll().size() == 0) {
 				// Insert default user
-				User user = new User();
+				UserModel user = new UserModel();
 				user.setPasswordHash(webSecurityConfig.passwordEncoder().encode("admin"));
 				user.setUsername("admin");
 				user.setRole("ADMIN");

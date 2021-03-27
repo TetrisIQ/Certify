@@ -2,7 +2,7 @@ package de.tetrisiq.certify.app.controller;
 
 import de.tetrisiq.certify.app.config.UserService;
 import de.tetrisiq.certify.app.controller.requests.NewUser;
-import de.tetrisiq.certify.app.model.User;
+import de.tetrisiq.certify.app.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -22,7 +22,7 @@ public class UserController {
 
     @PostMapping("/api/user/new")
     public String addNewUser(@RequestBody NewUser newUser) {
-        Optional<User> optionalUser = userService.addNewUser(newUser);
+        Optional<UserModel> optionalUser = userService.addNewUser(newUser);
         if (optionalUser.isPresent()) {
             return "OKAY";
         } else {
