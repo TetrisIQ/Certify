@@ -49,7 +49,7 @@ $(function () {
     $("#btn-verify").click(function () {
         sha512(variables).then(function (hash) {
             console.log(hash);
-            $.get(`${backend}${hash}`, function (res) {
+            $.get(`${backend}verify/${hash}`, function (res) {
                 $("#verifyToken").html(res)
                 console.log(res)
 
