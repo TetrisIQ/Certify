@@ -196,9 +196,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij+all,vscode,linux,windows,macos,java
 
-backend/target/maven-status/maven-compiler-plugin/compile/default-compile/
-
-backend/target/classes/
-
-backend/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/
 /target/classes/

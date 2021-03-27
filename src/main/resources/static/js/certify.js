@@ -1,5 +1,5 @@
 //TODO: get this by JS
-const backend = "http://localhost:8080/api/";
+const backend = "https://tetrisiq-certify.herokuapp.com/api/";
 const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
 
 
@@ -28,8 +28,9 @@ function generate() {
     data['n'] = $("#name").val();
     data['o'] = $("#organisation").val();
     data['text'] = $("#text").val();
-
+    console.log(data);
     sha512(data).then(function (hash) {
+        console.log(hash);
         $.ajax({
             url: `${backend}${hash}`,
             type: 'POST',
@@ -38,7 +39,8 @@ function generate() {
             success: function (ret) {
                 $("#verify-text").show();
                 $("#verify-token").html(ret.verifyToken);
-                createQR(createUrl(data))
+                createQR(createUrl(data));
+                $("#new > div > div.row > div.col.text-right > button").remove();
             },
             error: function () {
 
