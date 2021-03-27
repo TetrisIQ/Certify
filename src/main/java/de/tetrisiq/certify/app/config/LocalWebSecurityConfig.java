@@ -16,11 +16,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-@Profile("!local")
-/**
- * Security Configuration
- */
-public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements WebSecurityInterface {
+@Profile("local")
+public class LocalWebSecurityConfig extends WebSecurityConfigurerAdapter implements WebSecurityInterface {
 
     @Autowired
     private UserService userService;
@@ -46,25 +43,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/",
-                        "/css/**",
-                        "/js/**",
-                        "/img/**",
-                        "/modal/**",
-                        "/webjars/**",
-                        "/verify/**",
-                        "/api/verify/**").permitAll()
-                .antMatchers("/", "/home", "/about").permitAll()
-                .antMatchers("/admin/**").hasAnyRole("ADMIN")
-                .antMatchers("/user/**").hasAnyRole("USER")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll()
+                .anyRequest().permitAll()
                 .and()
                 .exceptionHandling();
 
@@ -74,6 +53,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter implements W
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
 }
-

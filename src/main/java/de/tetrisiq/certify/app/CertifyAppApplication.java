@@ -1,6 +1,6 @@
 package de.tetrisiq.certify.app;
 
-import de.tetrisiq.certify.app.config.WebSecurityConfig;
+import de.tetrisiq.certify.app.config.WebSecurityInterface;
 import de.tetrisiq.certify.app.model.Report;
 import de.tetrisiq.certify.app.model.UserModel;
 import de.tetrisiq.certify.app.repository.ReportRepository;
@@ -45,13 +45,13 @@ public class CertifyAppApplication {
 	private class StartupRunner implements CommandLineRunner {
 
 		private UserRepository userRepository;
-		private WebSecurityConfig webSecurityConfig;
+		private WebSecurityInterface webSecurityInterface;
 		private ReportRepository reportRepository;
 
 		@Autowired
-		StartupRunner(UserRepository userRepository, WebSecurityConfig webSecurityConfig, ReportRepository reportRepository) {
+		StartupRunner(UserRepository userRepository, WebSecurityInterface webSecurityInterface, ReportRepository reportRepository) {
 			this.userRepository = userRepository;
-			this.webSecurityConfig = webSecurityConfig;
+			this.webSecurityInterface = webSecurityInterface;
 			this.reportRepository = reportRepository;
 		}
 
@@ -60,7 +60,7 @@ public class CertifyAppApplication {
 			if (userRepository.findAll().size() == 0) {
 				// Insert default user
 				UserModel user = new UserModel();
-				user.setPasswordHash(webSecurityConfig.passwordEncoder().encode("admin"));
+				user.setPasswordHash(webSecurityInterface.passwordEncoder().encode("admin"));
 				user.setUsername("admin");
 				user.setRole("ADMIN");
 				userRepository.save(user);

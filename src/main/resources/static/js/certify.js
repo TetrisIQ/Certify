@@ -14,6 +14,16 @@ function sha512(str) {
     });
 }
 
+// String => Base64
+function encode(str) {
+    return btoa(JSON.stringify(str));
+}
+
+// Base64 => String
+function decode(str) {
+    return atob(str)
+}
+
 function generate() {
     $("#qr-code").html("");
     var data = {};
@@ -28,8 +38,8 @@ function generate() {
     data['n'] = $("#name").val();
     data['o'] = $("#organisation").val();
     data['text'] = $("#text").val();
-    console.log(data);
-    sha512(data).then(function (hash) {
+    var encodedData = encode(data);
+    sha512(encodedData).then(function (hash) {
         console.log(hash);
         $.ajax({
             url: `${backend}${hash}`,
@@ -39,8 +49,8 @@ function generate() {
             success: function (ret) {
                 $("#verify-text").show();
                 $("#verify-token").html(ret.verifyToken);
-                createQR(createUrl(data));
-                $("#new > div > div.row > div.col.text-right > button").html("Downlad");
+                createQR(`${verifyUrl}verify?data=${encodedData}&hash=sha512`);
+                $("#new > div > div.row > div.col.text-right > button").html("Download");
                 $("#new > div > div.row > div.col.text-right > button").attr("onclick","downloadQR()");
             },
             error: function () {
@@ -59,6 +69,7 @@ function downloadQR() {
 }
 
 function createQR(url) {
+    console.log(url);
     qrCode = new QRCodeStyling(
         {
             "width": 300,

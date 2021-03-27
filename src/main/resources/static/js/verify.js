@@ -13,7 +13,7 @@ function getUrlVars() {
         vars[key] = val;
     }
     console.log(vars);
-    return vars;
+    return JSON.parse(decode(vars.data));
 }
 
 function createTable() {

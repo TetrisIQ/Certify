@@ -26,7 +26,7 @@ public class UserService implements UserDetailsService {
     private UserRepository userRepository;
 
     @Autowired
-    WebSecurityConfig webSecurityConfig;
+    WebSecurityInterface webSecurityConfig;
 
     /**
      * Get the currently
