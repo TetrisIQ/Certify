@@ -1,7 +1,7 @@
 //TODO: get this by JS
 const backend = "https://tetrisiq-certify.herokuapp.com/api/";
 const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
-
+var qrCode;
 
 function newLine() {
     $(".add").remove();
@@ -40,7 +40,8 @@ function generate() {
                 $("#verify-text").show();
                 $("#verify-token").html(ret.verifyToken);
                 createQR(createUrl(data));
-                $("#new > div > div.row > div.col.text-right > button").remove();
+                $("#new > div > div.row > div.col.text-right > button").html("Downlad");
+                $("#new > div > div.row > div.col.text-right > button").attr("onclick","downloadQR()");
             },
             error: function () {
 
@@ -50,8 +51,15 @@ function generate() {
 
 }
 
+function downloadQR() {
+    var name = $("#name").val();
+    var verifyToken = $("#verify-token").html();
+    var name = `${name}-${verifyToken}.jpeg`;
+    qrCode.download(name,"jpeg");
+}
+
 function createQR(url) {
-    const qrCode = new QRCodeStyling(
+    qrCode = new QRCodeStyling(
         {
             "width": 300,
             "height": 300,
