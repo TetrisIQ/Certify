@@ -1,5 +1,5 @@
 //TODO: get this by JS
-const backend = "https://tetrisiq-certify.herokuapp.com/api/";
+const backend = "http://localhost:8080/api/";
 const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
 var qrCode;
 
@@ -55,7 +55,7 @@ function downloadQR() {
     var name = $("#name").val();
     var verifyToken = $("#verify-token").html();
     var name = `${name}-${verifyToken}.jpeg`;
-    qrCode.download(name,"jpeg");
+    qrCode.download({ name: name, extension: 'jpeg' });
 }
 
 function createQR(url) {
