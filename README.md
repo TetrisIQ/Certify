@@ -21,6 +21,6 @@ Ein Tool zum verifizieren von Schul- und Abschlusszeugnissen
 |Chemie|2|
 
 **QR-Code:**   
-![QR-Code Max Mustermann]()
+![QR-Code Max Mustermann](https://raw.githubusercontent.com/wiki/TetrisIQ/Certify/img/MaxMusterman-dbb5e2a8.png)
 
-**VerifyToken:**  
+**VerifyToken:**  dbb5e2a8

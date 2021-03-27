@@ -1,12 +1,11 @@
 //TODO: get this by JS
-const backend = "https://tetrisiq-certify.herokuapp.com/api/";
+const backend = "http://localhost:8080/api/";
 const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
 
 
 function newLine() {
     $(".add").remove();
     $('#table tbody').append(`<tr><td><input type="text" class="form-control" placeholder="Fach"></td><td><input type="text" class="form-control" placeholder="Note" aria-label="Note"aria-describedby="basic-addon1"></td><td><button onclick="newLine()" class="btn btn-secondary text-white add">+</button></td></tr>`);
-
 }
 
 function sha512(str) {
@@ -16,6 +15,7 @@ function sha512(str) {
 }
 
 function generate() {
+    $("#qr-code").html("");
     var data = {};
     $('table > tbody  > tr').each(function (index, tr) {
         var n = tr.children[1].children[0].value;
@@ -25,21 +25,18 @@ function generate() {
         data[f] = n;
     });
 
-    data['name'] = $("#name").val();
-    data['organisation'] = $("#organisation").val();
+    data['n'] = $("#name").val();
+    data['o'] = $("#organisation").val();
     data['text'] = $("#text").val();
 
     sha512(data).then(function (hash) {
         $.ajax({
             url: `${backend}${hash}`,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader("Authorization", "Basic " + btoa(sessionStorage.getItem("username") + ":" + sessionStorage.getItem("password")));
-            },
             type: 'POST',
             dataType: 'json',
             contentType: 'application/json',
             success: function (ret) {
-                $("#verify-text").toggle();
+                $("#verify-text").show();
                 $("#verify-token").html(ret.verifyToken);
                 createQR(createUrl(data))
             },

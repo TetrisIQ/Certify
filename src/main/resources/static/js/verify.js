@@ -1,5 +1,6 @@
 const variables = getUrlVars();
-const backend = "https://tetrisiq-certify.herokuapp.com/api/verify/"
+//const backend = "https://tetrisiq-certify.herokuapp.com/api/verify/";
+
 // Read a page's GET URL variables and return them as an associative array.
 function getUrlVars() {
     var vars = {}, hash;
@@ -11,13 +12,17 @@ function getUrlVars() {
         var val = decodeURIComponent((hash[1] + '').replace(/\+/g, '%20'));
         vars[key] = val;
     }
-    console.log(vars)
+    console.log(vars);
     return vars;
 }
 
 function createTable() {
     for (const p in variables) {
-        if (p === "n") {
+        if(p === "text") {
+            $("#text").html(variables[p])
+
+        }
+        else if (p === "n") {
             $("#name").html(variables[p])
         }
         else if (p === "o") {
