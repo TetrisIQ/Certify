@@ -1,5 +1,5 @@
 const variables = getUrlVars();
-const backend = "http://localhost:8080/api/verify/"
+const backend = "https://tetrisiq-certify.herokuapp.com/api/verify/"
 // Read a page's GET URL variables and return them as an associative array.
 function getUrlVars() {
     var vars = {}, hash;
