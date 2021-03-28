@@ -1,6 +1,6 @@
-//TODO: get this by JS
-const backend = "http://localhost:8080/api/";
-const verifyUrl = "https://tetrisiq-certify.herokuapp.com/";
+const verifyUrl = window.location.origin;
+const backend = `${verifyUrl}/api/`;
+
 var qrCode;
 
 function newLine() {
