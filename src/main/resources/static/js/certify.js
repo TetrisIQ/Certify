@@ -39,7 +39,7 @@ function generate() {
     data['o'] = $("#organisation").val();
     data['text'] = $("#text").val();
     var encodedData = encode(data);
-    sha512(encodedData).then(function (hash) {
+    sha512(data).then(function (hash) {
         console.log(hash);
         $.ajax({
             url: `${backend}${hash}`,
@@ -49,9 +49,9 @@ function generate() {
             success: function (ret) {
                 $("#verify-text").show();
                 $("#verify-token").html(ret.verifyToken);
-                createQR(`${verifyUrl}verify?data=${encodedData}&hash=sha512`);
+                createQR(`${verifyUrl}/verify?data=${encodedData}&hash=sha512&verify=${ret.verifyToken}`);
                 $("#new > div > div.row > div.col.text-right > button").html("Download");
-                $("#new > div > div.row > div.col.text-right > button").attr("onclick","downloadQR()");
+                $("#new > div > div.row > div.col.text-right > button").attr("onclick", "downloadQR()");
             },
             error: function () {
 
@@ -65,7 +65,7 @@ function downloadQR() {
     var name = $("#name").val();
     var verifyToken = $("#verify-token").html();
     var name = `${name}-${verifyToken}.jpeg`;
-    qrCode.download({ name: name, extension: 'jpeg' });
+    qrCode.download({name: name, extension: 'jpeg'});
 }
 
 function createQR(url) {
@@ -96,5 +96,56 @@ function createUrl(data) {
         ret += `${p}=${data[p]}&`
     }
     return ret.substring(0, ret.length - 1);
-
 }
+
+var variables;
+
+// Read a page's GET URL variables and return them as an associative array.
+function getUrlVars() {
+    var vars = {}, hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+
+        hash = hashes[i].split('=');
+        var key = decodeURIComponent((hash[0] + '').replace(/\+/g, '%20'));
+        var val = decodeURIComponent((hash[1] + '').replace(/\+/g, '%20'));
+        vars[key] = val;
+    }
+    console.log(vars);
+    variables = vars;
+    variables.data = JSON.parse(decode(vars.data));
+}
+
+function createTable() {
+    getUrlVars();
+    for (const p in variables.data) {
+        if (p === "text") {
+            $("#text").html(variables.data[p])
+
+        } else if (p === "n") {
+            $("#name").html(variables.data[p])
+        } else if (p === "o") {
+            $("#organisation").html(variables.data[p])
+
+        } else {
+            $('#table tbody').append(`<tr><th>${p}</th><td>${variables.data[p]}</td></tr>`);
+        }
+    }
+}
+
+function verifyBtn() {
+    sha512(variables).then(function (hash) {
+        $.get(`${backend}verify/${hash}`, function (res) {
+            $("#verifyToken").html(res);
+            if(res === variables["verify"]) {
+                $("body").css("background-color", "var(--success)")
+            } else {
+                $("body").css("background-color", "var(--danger)")
+            }
+        })
+            .fail(function (e) {
+                $("#verifyToken").html(e);
+            })
+    });
+}
+

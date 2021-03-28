@@ -16,7 +16,7 @@
             <h3>Schule: <span id="organisation"></span></h3>
         </div>
         <div class="col text-right">
-            <button type="button" id="btn-verify" class="btn btn-secondary btn-verify">Verifizieren</button>
+            <button type="button" onclick="verifyBtn()" id="btn-verify" class="btn btn-secondary btn-verify">Verifizieren</button>
             <p>VerifyToken: <span id="verifyToken">XXXXXXXX</span></p>
         </div>
     </div>
@@ -44,7 +44,12 @@
 
 <!-- Footer -->
 <div th:insert="fragments/general.html :: footer"></div>
-<script th:src="@{js/verify.js}"></script>
+<script>
+    $(function () {
+        createTable();
+
+    })
+</script>
 
 
 </body>

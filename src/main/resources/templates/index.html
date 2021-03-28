@@ -15,13 +15,13 @@
         <div class="row">
             <div class="col-lg-8 mx-auto">
                 <h2>Verifiziere dein Zeugnis</h2>
-                <p class="lead">Folge der Schritt für Schritt anweisung</p>
+                <p class="lead">Folge der Schritt für Schritt Anweisung</p>
                 <ul>
                     <li>Scanne den QR-Code auf dem Dokument</li>
-                    <li>Überprüfe die Noten und Fächer</li>
-                    <li>Stimmt alles überein, starte die Überprüfung</li>
-                    <li>Vergleiche den code den du bekommen hast mit dem VerifyToken auf dem Dokument</li>
-                    <li>Stimmt der Code überein, stimmen die daten überein</li>
+                    <li>Starte die Überprüfung</li>
+                    <li>Du siehst alle Daten auf der Webseite. Und du kannst sie abgleichen</li>
+                    <li>Wird der Hintergrund bei der Überprüfung grün, stimmt alles</li>
+                    <li>Wird der Hintergrund nicht grün, ist irgendetwas falsch.</li>
                 </ul>
             </div>
         </div>
@@ -32,23 +32,22 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2>Wie Funktioniert die Verifizierung</h2>
-                <p class="lead">Einfach erklärt</p> <!-- Doppelt mit section 1 oben-->
-                <p>Für die Verifizierung muss die Organisation die dir das Zeugnis ausgestellt hat, dieses hier zuerst
+                <h2>Wie funktioniert die Verifizierung</h2>
+                <p class="lead">Einfach erklärt</p>
+                <p>Für die Verifizierung muss die Organisation, die dir das Zeugnis ausgestellt hat, dieses hier zuerst
                     Registrieren. Auf deinem Zeugnis sollte ein QR-Code und ein VerifyToken zu sehen sein.</p>
-                <p>Zum Verifizieren musst du lediglich den QR-Code scannen, die angegebenen Daten mit dennen auf dem
-                    Zeugnis vergleichen und das VerifyToken genau überprüfen.</p>
-                <p>Wenn alles übereinstimmt ist das Zeugnis Verifiziert!</p>
-                <hr>
-                <p class="lead">Ein Technischer blickwinkel</p>
-                <p>Bei der Regestrierung des Zeignisses wird von den daten, in dem Zeugnis eine Hash summe (sha512)
+                <p>Bei der Registrierung des Zeugnisses wird von den Daten, in dem Zeugnis eine <a
+                        href="https://de.wikipedia.org/wiki/Hashfunktion">Prüfsummen</a> (sha512)
                     gebildet. Diese wird mit dem VerifyToken im Backend gespeichert.</p>
-                <p>Es wird nicht das gesamte zeugnis gespeichert, sondern nur dieser Hash wert und das Token. Bei der
-                    Verifizirung wird der selbe Algorythmus verwendet und es wird nur die Hash summe abgeglichen.</p>
-                <p>Im QR-Code werden die Zeugnisinforationen über Fächer und Noten gespeichert und beim scannen an die
+                <p>Es wird nicht das gesamte Zeugnis gespeichert, sondern nur diese Prüfsummen und das Token. Bei der
+                    Verifizierung wird derselbe Algorithmus verwendet und es wird nur die Hash Summe abgeglichen.</p>
+                <p>Im QR-Code werden die Zeugnisinforationen über Fächer und Noten gespeichert und beim Scannen an die
                     Webseite übermittelt (aber nicht gespeichert).</p>
-                <p>Dies ist ist vergleichbar mit dem Mauellen eintragen aller noten, nur das der QR-Code schneller ist
-                    und keine fehler beim Abtippen auftreten.</p>
+                <p>Dies ist vergleichbar mit dem Manuellen eintragen aller Noten, nur das der QR-Code schneller ist und
+                    keine Fehler beim Abtippen auftreten.</p>
+                <p>Der Anspruch dieser App ist es dabei nicht die Fehler die ein "Normales" Zeugnis hat zu eliminieren.
+                    Sondern den Beglaubigungsprozess bei Behörden zu vereinfachen. Möglichkeiten diese Verifizierung zu
+                    umgehen sind hier beschrieben. Allerdings ist die Ausführung um einiges aufwendiger. </p>
             </div>
         </div>
     </div>
