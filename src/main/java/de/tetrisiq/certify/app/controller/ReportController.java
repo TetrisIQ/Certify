@@ -23,7 +23,6 @@ public class ReportController {
     public ReportController(UserService userService, ReportRepository reportRepository) {
         this.userService = userService;
         this.reportRepository = reportRepository;
-
     }
 
 
