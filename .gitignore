@@ -1,0 +1,5 @@
+/node_modules/
+/dist/
+/.idea/
+/firestore.creds.json
+/package-lock.json

@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "experimentalDecorators": true,
+    "target": "ES5",
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "node_modules/*"
+      ]
+    },
+    "moduleResolution": "node",
+    "strict": true,
+    "noImplicitAny": true,
+    "sourceMap": true,
+    "removeComments": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictPropertyInitialization": true,
+    "lib": [
+      "dom",
+      "es5",
+      "scripthost",
+    ]
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
