@@ -1,0 +1,10 @@
+{
+  "page": {
+    "navbar": {
+      "home": "Home DE",
+      "verify": "Verify DE",
+      "techstack": "Tech Stack DE",
+      "about": "About DE"
+    }
+  }
+}

@@ -6,7 +6,6 @@ import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import css from 'rollup-plugin-css-only';
-import copy from 'rollup-plugin-copy';
 import json from '@rollup/plugin-json';
 
 
@@ -50,12 +49,6 @@ export default {
 			}
 		}),
 		json(),
-		copy({
-            targets: [{ 
-                src: 'node_modules/bootstrap/dist/**/*', 
-                dest: 'public/vendor/bootstrap' 
-            }]
-		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
 		css({ output: 'bundle.css' }),

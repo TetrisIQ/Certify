@@ -1,0 +1,18 @@
+{
+  "global": {
+    "navbar": {
+      "home": "Home",
+      "verify": "Verify",
+      "techstack": "Tech Stack",
+      "about": "About"
+    }
+  },
+  "home": {
+    "welcome": "Welcome to Certify",
+    "caption": "A easy way to verify your school reports",
+    "comment": "In fields started with text, HTML tags will be rendered",
+    "text1": "Wherever you find a QR on a report. Scan it! Your Grades are stored in the QR code, not on our Servers. You don't believe us. Check it out! We are <a target=\"_blank\" href=\"https://github.com/TetrisIQ/Certify/\">OpenSource</a>! Here are an Example QR code. So you can try it out.",
+    "how": "How it works",
+    "text2": "Your school or university must provide you with a report with a Certify QR code. Only then can you verify your report using the QR code. If your school or university isn't doing this yet, tell them about this project.</p><p>After scanning the QR code, you see your grades on the website and you can compare them with your Copy of your report. If everything matches and the Verify Button on the webpage is green. Your report is valid &#127881;"
+  }
+}
