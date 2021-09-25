@@ -6,5 +6,13 @@
       "techstack": "Tech Stack DE",
       "about": "About DE"
     }
+  },
+  "home": {
+    "welcome": "Willkommen bei Certify",
+    "caption": "Der einfachste weg deine Schule und Abschluss Zeugnisse zu verifizieren",
+    "ignoreMeIamAComment": "In fields started with text, HTML tags will be rendered",
+    "text1": "Wo auch immer du einen QR-Code auf einem Zeugnis findest. Scan ihn! Deine Noten werden im QR code gespeichert, nicht auf unseren Servern. Wenn du uns nicht glaubst, überprüfe uns! Der Quellcode ist <a target=\"_blank\" href=\"https://github.com/TetrisIQ/Certify/\">Open Source</a>! Hier ist ein Beispiel QR-Code, damit du es mal ausprobieren kannst.",
+    "how": "Wie funktioniert es",
+    "text2": "Deine Schule oder Universität muss dir ein Zeugnis mit einem Certify QR code zur Verfügung stellen. Nur dann kannst du dein Zeugnis über den QR code verifizieren. Wenn deine Schule oder Universität diese noch nicht macht, erzähl ihr von diesem Projekt.</p><p>Nachdem du den QR code gescannt hast, werden dir deine Noten auf der Webseite angezeigt, jetzt kannst du sie mit deiner Kopie vergleichen. Stimmt alles überein und er Verify Knopf zeigt grün. Stimmen die Noten auf deinem Zeugnis  &#127881;"
   }
 }

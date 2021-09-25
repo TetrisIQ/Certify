@@ -12,14 +12,14 @@
         </div>
 
         <div class="content">
-                    <p>
-                        {@html $_('home.text1')}
-                    </p>
-          <!--  <p>Wherever you find a QR on a report. Scan it!
-                Your Grades are stored in the QR code, not on our Servers.
-                You don't beleve us. Check it out! We are <a target="_blank"
-                                                             href="https://github.com/TetrisIQ/Certify/">OpenSource</a>!
-                Here are an Example QR code. So you can try it out.</p>-->
+            <p>
+                {@html $_('home.text1')}
+            </p>
+            <!--  <p>Wherever you find a QR on a report. Scan it!
+                  Your Grades are stored in the QR code, not on our Servers.
+                  You don't beleve us. Check it out! We are <a target="_blank"
+                                                               href="https://github.com/TetrisIQ/Certify/">OpenSource</a>!
+                  Here are an Example QR code. So you can try it out.</p>-->
             <img class="my-4" alt="Example QR Code"
                  src='https://raw.githubusercontent.com/wiki/TetrisIQ/Certify/img/MaxMusterman-dbb5e2a8.png'/>
             <h5 class="py-2">{$_('home.how')}</h5>
@@ -34,7 +34,8 @@
 <style>
     .main {
         background: url("/assets/images/brandi-redd-aJTiW00qqtI-unsplash.jpg") fixed;
-        height: 110%;
+        max-height: 500%;
+        padding-bottom: 3rem;
     }
 
 
