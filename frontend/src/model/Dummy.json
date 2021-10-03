@@ -1,0 +1,15 @@
+{
+  "head": [
+    ["Name", "Max Musterman"],
+    ["Year", "2021"],
+    ["Organisation", "Fancy school"]
+  ],
+  "body": [
+    ["Math", "A"],
+    ["English", "C"],
+    ["Physics", "F"]
+  ],
+  "grade": "Grade",
+  "subject" : "Subject",
+  "text": "Some long text to display"
+}

@@ -4,7 +4,6 @@
 
 </script>
 <div class="main">
-
     <div class="container">
         <div class="header">
             <h1>{$_('home.welcome')}</h1>
@@ -44,9 +43,4 @@
         text-align: center;
     }
 
-    .header {
-        text-align: center;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-    }
 </style>
